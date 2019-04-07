@@ -10,7 +10,7 @@ function RegisterEvent(event, func)
     AddEventHandler(event, func)
 end
 
-exports["mysql-hook"]:callback(function()
+MySQL.ready(function()
     MySQL.Async.fetchAll("SELECT * FROM bankdeposit", {}, function(response)
         if response == nil then return end
 
